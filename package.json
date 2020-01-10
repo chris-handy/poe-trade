@@ -1,0 +1,43 @@
+{
+  "name": "poe-trade",
+  "version": "0.0.1",
+  "description": "A Trade tool for Path of Exile",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-handy/poe-trade.git"
+  },
+  "author": "Christopher Handy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-handy/poe-trade/issues"
+  },
+  "homepage": "https://github.com/chris-handy/poe-trade#readme",
+  "dependencies": {
+    "core-js": "^3.6.2",
+    "electron": "^7.1.8",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-scripts": "^3.3.0",
+    "tailwind": "^4.0.0",
+    "typescript": "^3.7.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
