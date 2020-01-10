@@ -1,7 +1,10 @@
+'use strict';
+
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-require('electron-reload');
+//console.log(isDev);
+//if (isDev) { require('electron-reload')(__dirname) }
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

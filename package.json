@@ -2,14 +2,14 @@
     "name": "poe-trade",
     "version": "0.0.1",
     "description": "A Trade tool for Path of Exile",
-    "main": "src/background.js",
+    "main": "src/index.js",
     "scripts": {
-        "start": "cross-env BROWSER=none npm run react-start",
+        "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\"",
         "prepack": "react-scripts build",
-        "pack": "electron-builder --c.extraMetadata.main=./src/background.js",
+        "pack": "electron-builder --c.extraMetadata.main=build/electron.js",
         "dist": "electron-builder"
     },
     "repository": {
@@ -45,6 +45,7 @@
         ]
     },
     "devDependencies": {
+        "cross-env": "^6.0.3",
         "electron": "^7.1.8",
         "electron-builder": "^21.2.0",
         "electron-reload": "^1.5.0",
