@@ -1,64 +1,62 @@
 {
-  "name": "poe-trade",
-  "version": "0.0.1",
-  "description": "A Trade tool for Path of Exile",
-  "main": "src/background.js",
-  "scripts": {
-    "start": "cross-env BROWSER=none npm run react-start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chris-handy/poe-trade.git"
-  },
-  "author": "Christopher Handy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chris-handy/poe-trade/issues"
-  },
-  "homepage": "https://github.com/chris-handy/poe-trade#readme",
-  "dependencies": {
-    "core-js": "^3.6.2",
-    "electron-is-dev": "^1.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router": "^5.1.2",
-    "react-scripts": "^3.3.0",
-    "tailwind": "^4.0.0",
-    "typescript": "^3.7.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "electron": "^7.1.8",
-    "electron-builder": "^21.2.0",
-    "electron-reload": "^1.5.0",
-    "nodemon": "^2.0.2"
-  },
-  "build": {
-    "appId": "poe.trade",
-    "directories": {
-      "buildResources": "assets"
+    "name": "poe-trade",
+    "version": "0.0.1",
+    "description": "A Trade tool for Path of Exile",
+    "main": "src/background.js",
+    "scripts": {
+        "start": "cross-env BROWSER=none npm run react-start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\"",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
     },
-    "win": {
-      "category": "gaming",
-      "iconUrl": "path-to-icon.png"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/chris-handy/poe-trade.git"
     },
-    "mac": {
-      "category": "gaming",
-      "iconUrl": "path-to-icon.png"
+    "author": "Christopher Handy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/chris-handy/poe-trade/issues"
+    },
+    "homepage": "https://github.com/chris-handy/poe-trade#readme",
+    "dependencies": {
+        "core-js": "^3.6.2",
+        "electron-is-dev": "^1.1.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-router": "^5.1.2",
+        "react-scripts": "^3.3.0",
+        "tailwind": "^4.0.0",
+        "typescript": "^3.7.4"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "electron": "^7.1.8",
+        "electron-builder": "^21.2.0",
+        "electron-reload": "^1.5.0",
+        "nodemon": "^2.0.2"
+    },
+    "build": {
+        "appId": "poe.trade",
+        "files": [
+            "dist/**/*",
+            "package.json"
+        ],
+        "win": {
+            "target": "portable"
+        }
     }
-  }
 }
