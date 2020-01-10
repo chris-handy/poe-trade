@@ -8,7 +8,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\"",
-        "pack": "electron-builder --dir",
+        "prepack": "react-scripts build",
+        "pack": "electron-builder --c.extraMetadata.main=./src/background.js",
         "dist": "electron-builder"
     },
     "repository": {
@@ -20,7 +21,7 @@
     "bugs": {
         "url": "https://github.com/chris-handy/poe-trade/issues"
     },
-    "homepage": "https://github.com/chris-handy/poe-trade#readme",
+    "homepage": "./",
     "dependencies": {
         "core-js": "^3.6.2",
         "electron-is-dev": "^1.1.0",
@@ -52,9 +53,13 @@
     "build": {
         "appId": "poe.trade",
         "files": [
-            "dist/**/*",
+            "build/**/*",
+            "node_modules/**/*",
             "package.json"
         ],
+        "directories": {
+            "buildResources": "assets"
+        },
         "win": {
             "target": "portable"
         }
