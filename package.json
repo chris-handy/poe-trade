@@ -2,11 +2,12 @@
   "name": "poe-trade",
   "version": "0.0.1",
   "description": "A Trade tool for Path of Exile",
-  "main": "index.js",
+  "main": "src/background.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env BROWSER=none npm run react-start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\""
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   "homepage": "https://github.com/chris-handy/poe-trade#readme",
   "dependencies": {
     "core-js": "^3.6.2",
-    "electron": "^7.1.8",
+    "electron-is-dev": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
@@ -39,5 +40,25 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^7.1.8",
+    "electron-builder": "^21.2.0",
+    "electron-reload": "^1.5.0",
+    "nodemon": "^2.0.2"
+  },
+  "build": {
+    "appId": "poe.trade",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "category": "gaming",
+      "iconUrl": "path-to-icon.png"
+    },
+    "mac": {
+      "category": "gaming",
+      "iconUrl": "path-to-icon.png"
+    }
   }
 }
