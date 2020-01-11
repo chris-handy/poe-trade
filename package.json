@@ -2,35 +2,37 @@
     "name": "poe-trade",
     "version": "0.0.1",
     "description": "A Trade tool for Path of Exile",
-    "main": "src/index.js",
+    "main": "public/electron.js",
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\"",
-        "prepack": "react-scripts build",
-        "pack": "electron-builder --c.extraMetadata.main=build/electron.js",
-        "dist": "electron-builder"
+        "react-start": "react-scripts start",
+        "react-build": "react-scripts build",
+        "react-test": "react-scripts test --env=jsdom",
+        "react-eject": "react-scripts eject",
+        "electron-build": "electron-builder",
+        "release": "npm run react-build && electron-builder --publish=always",
+        "build": "npm run react-build && npm run electron-build",
+        "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/chris-handy/poe-trade.git"
     },
     "author": "Christopher Handy",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/chris-handy/poe-trade/issues"
     },
     "homepage": "./",
     "dependencies": {
+        "concurrently": "^5.0.2",
         "core-js": "^3.6.2",
         "electron-is-dev": "^1.1.0",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-router": "^5.1.2",
         "react-scripts": "^3.3.0",
-        "tailwind": "^4.0.0",
-        "typescript": "^3.7.4"
+        "typescript": "^3.7.4",
+        "wait-on": "^3.3.0"
     },
     "browserslist": {
         "production": [
@@ -52,7 +54,7 @@
         "nodemon": "^2.0.2"
     },
     "build": {
-        "appId": "poe.trade",
+        "appId": "com.poe.trade",
         "files": [
             "build/**/*",
             "node_modules/**/*",
@@ -62,6 +64,7 @@
             "buildResources": "assets"
         },
         "win": {
+            "icon": "../build/assets/icon.png",
             "target": "portable"
         }
     }

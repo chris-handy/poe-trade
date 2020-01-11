@@ -1,10 +1,8 @@
 'use strict';
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, shell, ipcMain } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-//console.log(isDev);
-//if (isDev) { require('electron-reload')(__dirname) }
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -13,8 +11,11 @@ let win
 function createWindow() {
 	// Create the browser window.
 	win = new BrowserWindow({
-		width: 800,
-		height: 600,
+		backgroundColor: '#F7F7F7',
+		minWidth: 880,
+		titleBarStyle: 'hidden',
+		height: 860,
+		width: 1280,
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -25,10 +26,10 @@ function createWindow() {
 		? 'http://localhost:3000'
 		: `file://${path.join(__dirname, '../build/index.html')}`
 	)
-
+	
 	// Open the DevTools.
 	win.webContents.openDevTools()
-
+	
 	// Emitted when the window is closed.
 	win.on('closed', () => {
 		// Dereference the window object, usually you would store windows
@@ -36,12 +37,14 @@ function createWindow() {
 		// when you should delete the corresponding element.
 		win = null
 	})
-}
+};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+	createWindow();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -58,4 +61,4 @@ app.on('activate', () => {
 	if (win === null) {
 		createWindow()
 	}
-})
+});
